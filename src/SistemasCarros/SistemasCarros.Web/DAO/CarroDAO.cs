@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
 using System.Data.SqlClient;
 
 using SistemasCarros.Web.Models;
+
 
 namespace SistemasCarros.Web.DAO
 {
     public class CarroDAO
     {
-        private string _connectionString;
-
-        public CarroDAO(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
+        private string _connectionString = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
         public void Insert(Carro carro)
         {
@@ -24,6 +19,7 @@ namespace SistemasCarros.Web.DAO
                 using (var connection = new SqlConnection(_connectionString))
                 using (var command = new SqlCommand("INSERT INTO tb_carro () VALUES ();", connection))
                 {
+                    connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
@@ -42,6 +38,7 @@ namespace SistemasCarros.Web.DAO
                 using (var connection = new SqlConnection(_connectionString))
                 using (var command = new SqlCommand("SELECT * FROM tb_carro;", connection))
                 {
+                    connection.Open();
                     var resultadoQuery = command.ExecuteReader();
 
                     if (resultadoQuery.HasRows)
@@ -76,6 +73,7 @@ namespace SistemasCarros.Web.DAO
                 using (var connection = new SqlConnection(_connectionString))
                 using (var command = new SqlCommand("UPDATE tb_carro SET {} WHERE ", connection))
                 {
+                    connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
@@ -92,6 +90,7 @@ namespace SistemasCarros.Web.DAO
                 using (var connection = new SqlConnection(_connectionString))
                 using (var command = new SqlCommand($"DELETE FROM tb_carro WHERE Codigo = {codigo};", connection))
                 {
+                    connection.Open();
                     command.ExecuteNonQuery();
                 }
             }

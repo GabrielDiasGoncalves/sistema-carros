@@ -11,7 +11,12 @@ namespace SistemasCarros.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("Teste");
+            var dao = new DAO.MarcaDAO();
 
+            var l = dao.SelectAll();
+
+            Console.WriteLine(l);
         }
     }
 }

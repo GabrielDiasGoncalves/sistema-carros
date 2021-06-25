@@ -21,8 +21,6 @@
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
@@ -35,7 +33,6 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
@@ -47,13 +44,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nome do aplicativo</a>
+                    <a class="navbar-brand" runat="server" href="~/">Gerenciador de cadastros de carros</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Página inicial</a></li>
-                        <li><a runat="server" href="~/About">Sobre</a></li>
-                        <li><a runat="server" href="~/Contact">Contato</a></li>
+                        <li><a runat="server" href="~/Carro">Carro</a></li>
+                        <li><a runat="server" href="~/Marca">Marca</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,10 +60,9 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Meu aplicativo ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Gerenciador ASP.NET</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>
